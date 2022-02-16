@@ -1,7 +1,7 @@
 # taskforhandh
-Task for the www.HandH.ru school
-Created by Aleksei Sachkov
-16.02.2022
+Task for the www.HandH.ru school<br>
+Created by Aleksei Sachkov<br>
+16.02.2022<br>
 
 <b><h2> Тестовое задание для поступающих в школу разработки Heads x Hands</h2></b>
 На любом языке программирования (который вам знаком или с которым у вас есть опыт работы) напишите функцию алгоритма описанного ниже.
