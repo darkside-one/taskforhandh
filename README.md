@@ -1,2 +1,2 @@
 # taskforhandh
-Task for handh.ru school
+Task for the www.HandH.ru school
