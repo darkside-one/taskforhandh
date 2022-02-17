@@ -1,31 +1,30 @@
-func createAndSortArrays (size: Int) -> [[Int]] {
-    
-    guard size > 0 else { return [] }
-    
-    // Generates an array of unique random numeric sizes
-    func uniqArraySize(size: Int) -> [Int] {
-        var setSizes = Set<Int>()
-        
-        while setSizes.count < size {
-            setSizes.insert(Int.random(in: 1...size))
-        }
-        return Array(setSizes)
-    }
-    
-    // Generates an arrays of random numbers
-    func getRandValue(size: Int) -> [Int] {
-        return (0..<size).map { _ in Int.random(in: -10-size...size+10) }
+func generateArrays(size: UInt8) -> [[Int]] {
+
+  // Generates an array of unique random numeric sizes
+  var setSizes = Set<UInt8>()
+
+  while setSizes.count < size {
+    setSizes.insert(UInt8.random(in: 1...size + 10))
+  }
+  let uniqArraySize = Array(setSizes)
+
+  // Filling an two-dimensional array of sorted arrays
+  var randomValuesArray = [Int]()
+  var resultArray = [[Int]]()
+
+  let intRange = Int(size)
+
+  for (index, size) in uniqArraySize.enumerated() {
+
+    for _ in 0..<size {
+      randomValuesArray.append(Int.random(in: -10 - intRange...intRange + 10))
     }
 
-    // Filling an two-dimensional array of sorted arrays
-    let uniqueNumArray = uniqArraySize(size: size)
+    index.isMultiple(of: 2)
+      ? resultArray.append(randomValuesArray.sorted(by: <))
+      : resultArray.append(randomValuesArray.sorted(by: >))
 
-    var resultArray = [[Int]]()
-
-    for (index, size) in uniqueNumArray.enumerated() {
-      index.isMultiple(of: 2) 
-        ? resultArray.append(getRandValue(size: size).sorted(by: <))
-        : resultArray.append(getRandValue(size: size).sorted(by: >))
-    }
-    return resultArray
+    randomValuesArray = [Int]()
+  }
+  return resultArray
 }
